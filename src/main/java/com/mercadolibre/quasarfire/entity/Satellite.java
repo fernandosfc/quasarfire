@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.mercadolibre.quasarfire.util.Point2DDoubleDeserealizer;;
-
 @Entity
 public class Satellite {
 	
@@ -27,7 +24,7 @@ public class Satellite {
 	public Point2D.Float getPosition() {
 		return position;
 	}
-	//@JsonDeserialize(using = Point2DDoubleDeserealizer.class)
+
 	public void setPosition(Point2D.Float position) {
 		this.position = position;
 	}
