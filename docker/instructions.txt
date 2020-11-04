@@ -1,0 +1,6 @@
+﻿1.Open terminal in current folder and execute these scripts
+
+docker build --tag quasarfire:0.1 .;
+docker run --name quasarfire-container --publish 8080:8080 -d quasarfire:0.1 java -jar /quasarfire/quasarfire.war;
+
+2.Once completed, quasarfire should be available in http://localhost:8080/
