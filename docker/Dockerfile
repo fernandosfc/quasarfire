@@ -32,8 +32,3 @@ RUN unset OLD_PATH;
 RUN unset M2; unset M2_HOME;
 #RUN yum -y autoremove
 RUN yum clean all
-RUN printenv
-
-#docker build --tag quasarfire:0.1 PATH
-#docker run --name quasarfire-container --publish 8080:8080 -d quasarfire:0.1 java -jar /quasarfire/quasarfire.war
-#http://localhost:8080/topsecret_split
