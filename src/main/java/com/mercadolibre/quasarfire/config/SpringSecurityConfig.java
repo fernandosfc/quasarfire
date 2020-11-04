@@ -15,14 +15,19 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	@Override
+	@SuppressWarnings("deprecation")
 	public UserDetailsService userDetailsService() {
-		@SuppressWarnings("deprecation")
 		UserDetails user = User.withDefaultPasswordEncoder()
-				.username("user")
-				.password("password")
+				.username("hansolo")
+				.password("iknow")
 				.roles("ADMIN")
 				.build();
-		return new InMemoryUserDetailsManager(user);
+		UserDetails satellite = User.withDefaultPasswordEncoder()
+				.username("satellite")
+				.password("satellite_password")
+				.roles("SATELLITE")
+				.build();
+		return new InMemoryUserDetailsManager(user, satellite);
 	}
 	
     // Secure the endpoins with HTTP Basic authentication
@@ -32,6 +37,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .and()
 	        .authorizeRequests()
 	        .antMatchers(HttpMethod.POST, "/topsecret/").hasRole("ADMIN")
+	        .antMatchers(HttpMethod.POST, "/satellite_fleet/").hasRole("ADMIN")
 	        .antMatchers(HttpMethod.GET, "/topsecret_split/").hasAnyRole("CCO", "ADMIN")
 	        .antMatchers(HttpMethod.POST, "/topsecret_split/**").hasAnyRole("SATELLITE", "ADMIN")
 	        .and()
