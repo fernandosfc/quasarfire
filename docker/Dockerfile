@@ -14,7 +14,7 @@ ENV OLD_PATH=$PATH
 ENV PATH=$M2:$PATH
 RUN mkdir /files/quasarfire
 WORKDIR /files/quasarfire
-RUN git clone http://fernandosfc:5hyJcF8Sc2@github.com/fernandosfc/quasarfire.git
+RUN git clone http://github.com/fernandosfc/quasarfire.git
 WORKDIR /files/quasarfire/quasarfire
 RUN mvn clean install
 #RUN cp target/quasarfire-0.0.1-SNAPSHOT.war /var/lib/tomcat/webapps/quasarfire.war
